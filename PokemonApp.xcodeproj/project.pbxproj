@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		891933E329F0952600782D90 /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891933E229F0952600782D90 /* PokemonList.swift */; };
+		8944346829F44CAE000DE4D6 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944346629F44CAE000DE4D6 /* PokemonCollectionViewCell.swift */; };
+		8944346929F44CAE000DE4D6 /* PokemonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8944346729F44CAE000DE4D6 /* PokemonCollectionViewCell.xib */; };
 		8972E93829F1E07E0042E4EB /* PokemonNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972E93729F1E07E0042E4EB /* PokemonNetworkManager.swift */; };
 		8972E93D29F1E17A0042E4EB /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972E93C29F1E17A0042E4EB /* Pokemon.swift */; };
 		89A987DA29F08ABD00B15567 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A987D929F08ABD00B15567 /* AppDelegate.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		891933E229F0952600782D90 /* PokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
+		8944346629F44CAE000DE4D6 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
+		8944346729F44CAE000DE4D6 /* PokemonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCollectionViewCell.xib; sourceTree = "<group>"; };
 		8972E93729F1E07E0042E4EB /* PokemonNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkManager.swift; sourceTree = "<group>"; };
 		8972E93C29F1E17A0042E4EB /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		89A987D629F08ABD00B15567 /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8944346B29F44CB8000DE4D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89A987DD29F08ABD00B15567 /* PokemonViewController.swift */,
+				8944346629F44CAE000DE4D6 /* PokemonCollectionViewCell.swift */,
+				8944346729F44CAE000DE4D6 /* PokemonCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8972E93429F1D8790042E4EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +95,13 @@
 			children = (
 				89A987D929F08ABD00B15567 /* AppDelegate.swift */,
 				89A987DB29F08ABD00B15567 /* SceneDelegate.swift */,
-				89A987DD29F08ABD00B15567 /* PokemonViewController.swift */,
 				89A987DF29F08ABD00B15567 /* Main.storyboard */,
 				89A987E229F08ABD00B15567 /* Assets.xcassets */,
 				89A987E429F08ABD00B15567 /* LaunchScreen.storyboard */,
 				89A987E729F08ABD00B15567 /* Info.plist */,
 				8972E93429F1D8790042E4EB /* Model */,
 				8972E93A29F1E08C0042E4EB /* Helpers */,
+				8944346B29F44CB8000DE4D6 /* View */,
 			);
 			path = PokemonApp;
 			sourceTree = "<group>";
@@ -151,6 +165,7 @@
 			files = (
 				89A987E629F08ABD00B15567 /* LaunchScreen.storyboard in Resources */,
 				89A987E329F08ABD00B15567 /* Assets.xcassets in Resources */,
+				8944346929F44CAE000DE4D6 /* PokemonCollectionViewCell.xib in Resources */,
 				89A987E129F08ABD00B15567 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +180,7 @@
 				89A987DE29F08ABD00B15567 /* PokemonViewController.swift in Sources */,
 				891933E329F0952600782D90 /* PokemonList.swift in Sources */,
 				8972E93829F1E07E0042E4EB /* PokemonNetworkManager.swift in Sources */,
+				8944346829F44CAE000DE4D6 /* PokemonCollectionViewCell.swift in Sources */,
 				89A987DA29F08ABD00B15567 /* AppDelegate.swift in Sources */,
 				89A987DC29F08ABD00B15567 /* SceneDelegate.swift in Sources */,
 				8972E93D29F1E17A0042E4EB /* Pokemon.swift in Sources */,
