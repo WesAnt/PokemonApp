@@ -11,7 +11,7 @@ class PokemonViewController: UIViewController {
     
     //MARK: - Constants
     enum Constants {
-        static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon?Limit=151"
+        static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon?limit=151"
         static let title = "POKEMON"
     }
     
