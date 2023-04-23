@@ -11,11 +11,11 @@ import XCTest
 class PokemonDetailsViewModelTests: XCTestCase {
 
     //MARK: - Properties
-    var viewModel: PokemonDetailsViewModel!
-    var pokemonName: String = ""
-    var pokemonImageUrl: String = ""
-    var pokemonHeight = 0
-    var pokemonWeight = 0
+    private var viewModel: PokemonDetailsViewModel!
+    private var pokemonName: String = ""
+    private var pokemonImageUrl: String = ""
+    private var pokemonHeight = 0
+    private var pokemonWeight = 0
     
     //MARK: - Base Class Overrides
     override func setUp() {
@@ -41,5 +41,4 @@ class PokemonDetailsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.getPokemonHeight(), "Height: 70.0cm")
         XCTAssertEqual(viewModel.getPokemonWeight(), "Weight: 6.0kg")
     }
-
 }

@@ -39,6 +39,7 @@ class PokemonViewController: UIViewController {
         configureCollectionViewConstraints()
     }
     
+    //Mark: - Fetch pokemon data API
     private func fetchPokemonData() {
         pokemonNetworkManager.pokemonListRequest(with: Constants.pokemonListUrl) { pokemonList in
             self.pokemonEntries = pokemonList
@@ -58,6 +59,7 @@ class PokemonViewController: UIViewController {
     }
 }
 
+//MARK: - Collection View Layout
 extension PokemonViewController {
     static func createLayout() -> UICollectionViewCompositionalLayout {
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(

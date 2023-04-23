@@ -9,6 +9,7 @@ import Foundation
 
 struct PokemonNetworkManager {
     
+    //MARK: - Fetch pokemon list from API
     func pokemonListRequest(with urlString: String, completion: @escaping ([PokemonEntry]) -> ()) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
@@ -17,9 +18,7 @@ struct PokemonNetworkManager {
                     print(error!.localizedDescription)
                     return
                 }
-                
                 guard let data = data else { return }
-                
                 do {
                     let pokemonList = try JSONDecoder().decode(PokemonList.self, from: data)
                     
@@ -35,6 +34,7 @@ struct PokemonNetworkManager {
         }
     }
     
+    //MARK: - Fetch pokemon stats from API
     func pokemonStatsRequest(with urlString: String, completion: @escaping (PokemonStats) -> ()) {
         if let url = URL(string: urlString) {
             let session = URLSession(configuration: .default)
@@ -43,12 +43,10 @@ struct PokemonNetworkManager {
                     print(error!.localizedDescription)
                     return
                 }
-                
                 guard let data = data else { return }
                 
                 do {
                     let pokemonStats = try JSONDecoder().decode(PokemonStats.self, from: data)
-                    
                     DispatchQueue.main.async {
                         completion(pokemonStats)
                     }

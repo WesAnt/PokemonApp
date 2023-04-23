@@ -11,9 +11,9 @@ import XCTest
 class PokemonCollectionViewCellTests: XCTestCase {
 
     //MARK: - Properties
-    var viewModel: PokemonCollectionViewCellViewModel!
-    var pokemonName: String = ""
-    var pokemonImageUrl: String = ""
+    private var viewModel: PokemonCollectionViewCellViewModel!
+    private var pokemonName: String = ""
+    private var pokemonImageUrl: String = ""
     
     //MARK: - Base Class Overrides
     override func setUp() {
