@@ -11,13 +11,11 @@ import XCTest
 class PokemonCollectionViewCellTests: XCTestCase {
 
     //MARK: - Properties
-    
     var viewModel: PokemonCollectionViewCellViewModel!
     var pokemonName: String = ""
     var pokemonImageUrl: String = ""
     
     //MARK: - Base Class Overrides
-    
     override func setUp() {
         super.setUp()
         pokemonName = "Bulbasaur"
@@ -31,7 +29,6 @@ class PokemonCollectionViewCellTests: XCTestCase {
     }
 
     //MARK:- Tests
-    
     func test_init_setsCorrectStrings() {
         XCTAssertEqual(pokemonName, "Bulbasaur")
         XCTAssertEqual(pokemonImageUrl, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")

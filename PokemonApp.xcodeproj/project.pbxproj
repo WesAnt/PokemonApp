@@ -13,6 +13,7 @@
 		8972E93829F1E07E0042E4EB /* PokemonNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972E93729F1E07E0042E4EB /* PokemonNetworkManager.swift */; };
 		8972E93D29F1E17A0042E4EB /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8972E93C29F1E17A0042E4EB /* Pokemon.swift */; };
 		898032DC29F593F500874915 /* PokemonCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898032DB29F593F500874915 /* PokemonCollectionViewCellTests.swift */; };
+		898032E229F59C3B00874915 /* PokemonDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898032E129F59C3B00874915 /* PokemonDetailsViewModel.swift */; };
 		89A8E1DE29F5483B00FE9F3C /* PokemonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8E1DD29F5483B00FE9F3C /* PokemonDetailsViewController.swift */; };
 		89A987DA29F08ABD00B15567 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A987D929F08ABD00B15567 /* AppDelegate.swift */; };
 		89A987DC29F08ABD00B15567 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A987DB29F08ABD00B15567 /* SceneDelegate.swift */; };
@@ -41,9 +42,9 @@
 		8972E93729F1E07E0042E4EB /* PokemonNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkManager.swift; sourceTree = "<group>"; };
 		8972E93C29F1E17A0042E4EB /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		898032AC29F590B700874915 /* PokemonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		898032AE29F590B700874915 /* PokemonAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAppTests.swift; sourceTree = "<group>"; };
 		898032B029F590B700874915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898032DB29F593F500874915 /* PokemonCollectionViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCellTests.swift; sourceTree = "<group>"; };
+		898032E129F59C3B00874915 /* PokemonDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewModel.swift; sourceTree = "<group>"; };
 		89A8E1DD29F5483B00FE9F3C /* PokemonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsViewController.swift; sourceTree = "<group>"; };
 		89A987D629F08ABD00B15567 /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A987D929F08ABD00B15567 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +123,6 @@
 		898032AD29F590B700874915 /* PokemonAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				898032AE29F590B700874915 /* PokemonAppTests.swift */,
 				898032B029F590B700874915 /* Info.plist */,
 				898032DB29F593F500874915 /* PokemonCollectionViewCellTests.swift */,
 			);
@@ -170,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				89D81D6329F5871100C185F9 /* PokemonCollectionViewCellViewModel.swift */,
+				898032E129F59C3B00874915 /* PokemonDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -293,6 +294,7 @@
 			files = (
 				89A987DE29F08ABD00B15567 /* PokemonViewController.swift in Sources */,
 				891933E329F0952600782D90 /* PokemonList.swift in Sources */,
+				898032E229F59C3B00874915 /* PokemonDetailsViewModel.swift in Sources */,
 				8972E93829F1E07E0042E4EB /* PokemonNetworkManager.swift in Sources */,
 				89D81D6029F5835D00C185F9 /* Extensions + String.swift in Sources */,
 				8944346829F44CAE000DE4D6 /* PokemonCollectionViewCell.swift in Sources */,

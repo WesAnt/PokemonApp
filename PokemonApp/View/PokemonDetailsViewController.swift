@@ -9,47 +9,40 @@ import UIKit
 
 class PokemonDetailsViewController: UIViewController {
     
+    //MARK: - IBOutlets
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet private var pokemonNameLabel: UILabel!
     @IBOutlet private var pokemonHeightLabel: UILabel!
     @IBOutlet private var pokemonWeightLabel: UILabel!
     
-    private var pokemonName: String?
-    private var pokemonImageUrl: String?
-    private var pokemonHeight: Int?
-    private var pokemonWeight: Int?
-    
+    //MARK: - Properties
+    private var viewModel: PokemonDetailsViewModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
-    func setup() {
+    //MARK: - Internal funcs
+    func bind(viewModel: PokemonDetailsViewModel) {
+        self.viewModel = viewModel
+        setup()
+    }
+    
+    //MARK: - Private funcs
+    private func setup() {
         title = "Pokemon Details"
         view.backgroundColor = .init(red: 50/255, green: 159/255, blue: 190/255, alpha: 1)
-        pokemonNameLabel.text = pokemonName?.capitalizingFirstLetter()
-        pokemonHeightLabel.text = "Height: \(pokemonHeight ?? 0) ft"
-        pokemonWeightLabel.text = "Weight: \(pokemonWeight ?? 0) Kg"
-        setImage(from: pokemonImageUrl ?? "")
+        pokemonNameLabel.text = viewModel?.getPokemonName()
+        pokemonHeightLabel.text = "Height: \(viewModel?.getPokemonHeight() ?? 0) ft"
+        pokemonWeightLabel.text = "Weight: \(viewModel?.getPokemonWeight() ?? 0) Kg"
+        setImage(from: viewModel?.getPokemonImageUrl() ?? "")
     }
     
-    func configure(pokemonImageUrl: String,
-                   pokemonName: String,
-                   pokemonHeight: Int,
-                   pokemonWeight: Int) {
-       
-        self.pokemonName = pokemonName
-        self.pokemonHeight = pokemonHeight
-        self.pokemonWeight = pokemonWeight
-        self.pokemonImageUrl = pokemonImageUrl
-    }
-    
-    func setImage(from url: String) {
+    private func setImage(from url: String) {
         guard let imageURL = URL(string: url) else { return }
-        
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: imageURL) else { return }
-            
             let image = UIImage(data: imageData)
             DispatchQueue.main.async {
                 self.pokemonImage.image = image

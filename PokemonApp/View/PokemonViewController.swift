@@ -9,13 +9,16 @@ import UIKit
 
 class PokemonViewController: UIViewController {
     
+    //MARK: - Constants
     enum Constants {
         static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon/"
+        static let title = "POKEMON"
     }
     
-    let pokemonNetworkManager = PokemonNetworkManager()
-    var pokemonEntries = [PokemonEntry]()
-    var pokemonStats = [PokemonStats]() {
+    //MARK: - Properties
+    private let pokemonNetworkManager = PokemonNetworkManager()
+    private var pokemonEntries = [PokemonEntry]()
+    private var pokemonStats = [PokemonStats]() {
         didSet {
             pokemonStats.sort {
                 $0.name  < $1.name
@@ -28,7 +31,7 @@ class PokemonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "POKEMON"
+        title = Constants.title
         fetchPokemonData()
         configureCollectionView()
         configureCollectionViewConstraints()
@@ -71,6 +74,7 @@ extension PokemonViewController {
     }
 }
 
+//MARK: - UICollectionViewDelegate
 extension PokemonViewController: UICollectionViewDelegate {
     private func configureCollectionView() {
         collectionView.dataSource = self
@@ -92,6 +96,7 @@ extension PokemonViewController: UICollectionViewDelegate {
     }
 }
 
+//MARK: - UICollectionViewDataSource
 extension PokemonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemonStats.count
@@ -107,7 +112,9 @@ extension PokemonViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let pokemonDetailsViewController = storyboard?.instantiateViewController(identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
-        pokemonDetailsViewController.configure(pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? "", pokemonName: pokemonStats[indexPath.row].name, pokemonHeight: pokemonStats[indexPath.row].height, pokemonWeight: pokemonStats[indexPath.row].weight)
+        
+        pokemonDetailsViewController.bind(viewModel: PokemonDetailsViewModel(pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? "", pokemonName: pokemonStats[indexPath.row].name, pokemonHeight: pokemonStats[indexPath.row].height, pokemonWeight: pokemonStats[indexPath.row].weight))
+        
         self.navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
