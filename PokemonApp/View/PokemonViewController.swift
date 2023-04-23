@@ -24,19 +24,24 @@ class PokemonViewController: UIViewController {
                 $0.name  < $1.name
             }
             if pokemonStats.count == pokemonEntries.count {
+                activityView.stopAnimating()
                 collectionView.reloadData()
             }
         }
     }
 
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PokemonViewController.createLayout())
+    let activityView = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
         title = Constants.title
         fetchPokemonData()
         configureCollectionView()
         configureCollectionViewConstraints()
+        showActivityIndicator()
     }
     
     //Mark: - Fetch pokemon data API
@@ -56,6 +61,12 @@ class PokemonViewController: UIViewController {
                 self.pokemonStats.append(pokemonStats)
             }
         }
+    }
+    
+    private func showActivityIndicator() {
+        activityView.center = self.view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
     }
 }
 
