@@ -17,9 +17,9 @@ struct PokemonDetailsViewModel {
     
     //Mark: - Init
     init(pokemonImageUrl: String,
-                   pokemonName: String,
-                   pokemonHeight: Int,
-                   pokemonWeight: Int) {
+         pokemonName: String,
+         pokemonHeight: Int,
+         pokemonWeight: Int) {
         self.pokemonName = pokemonName
         self.pokemonHeight = pokemonHeight
         self.pokemonWeight = pokemonWeight
@@ -28,18 +28,18 @@ struct PokemonDetailsViewModel {
     
     //Mark: - Getter funcs
     func getPokemonName() -> String {
-        pokemonName.capitalizingFirstLetter()
+        "Name: " + pokemonName.capitalizingFirstLetter()
     }
     
     func getPokemonImageUrl() -> String {
         pokemonImageUrl
     }
     
-    func getPokemonHeight() -> Int {
-        pokemonHeight
+    func getPokemonHeight() -> String {
+        "Height: \(pokemonHeight)"
     }
     
-    func getPokemonWeight() -> Int {
-        pokemonWeight
+    func getPokemonWeight() -> String {
+        "Weight: \(pokemonWeight)"
     }
 }

@@ -26,5 +26,4 @@ struct PokemonCollectionViewCellViewModel {
     func getPokemonImageUrl() -> String {
         pokemonImageUrl
     }
-    
 }

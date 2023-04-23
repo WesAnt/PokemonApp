@@ -17,7 +17,7 @@ class PokemonDetailsViewController: UIViewController {
     
     //MARK: - Properties
     private var viewModel: PokemonDetailsViewModel?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -34,8 +34,8 @@ class PokemonDetailsViewController: UIViewController {
         title = "Pokemon Details"
         view.backgroundColor = .init(red: 50/255, green: 159/255, blue: 190/255, alpha: 1)
         pokemonNameLabel.text = viewModel?.getPokemonName()
-        pokemonHeightLabel.text = "Height: \(viewModel?.getPokemonHeight() ?? 0) ft"
-        pokemonWeightLabel.text = "Weight: \(viewModel?.getPokemonWeight() ?? 0) Kg"
+        pokemonHeightLabel.text = viewModel?.getPokemonHeight()
+        pokemonWeightLabel.text = viewModel?.getPokemonWeight()
         setImage(from: viewModel?.getPokemonImageUrl() ?? "")
     }
     
