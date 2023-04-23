@@ -23,11 +23,12 @@ class PokemonViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-    
+
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PokemonViewController.createLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "POKEMON"
         fetchPokemonData()
         configureCollectionView()
         configureCollectionViewConstraints()
@@ -105,5 +106,11 @@ extension PokemonViewController: UICollectionViewDataSource {
         cell.configure(name: pokemonStats[indexPath.row].forms.first?.name ?? "",
                        image: pokemonStats[indexPath.row].sprites.front_default ?? "")
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let pokemonDetailsViewController = storyboard?.instantiateViewController(
+            identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
+        self.navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
