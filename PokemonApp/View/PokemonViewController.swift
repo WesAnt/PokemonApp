@@ -11,7 +11,7 @@ class PokemonViewController: UIViewController {
     
     //MARK: - Constants
     enum Constants {
-        static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon/"
+        static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon?Limit=151"
         static let title = "POKEMON"
     }
     
@@ -23,7 +23,9 @@ class PokemonViewController: UIViewController {
             pokemonStats.sort {
                 $0.name  < $1.name
             }
-            collectionView.reloadData()
+            if pokemonStats.count == pokemonEntries.count {
+                collectionView.reloadData()
+            }
         }
     }
 

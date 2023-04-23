@@ -36,10 +36,10 @@ struct PokemonDetailsViewModel {
     }
     
     func getPokemonHeight() -> String {
-        "Height: \(pokemonHeight)"
+        "Height: \(Float(pokemonHeight*10))cm"
     }
     
     func getPokemonWeight() -> String {
-        "Weight: \(pokemonWeight)"
+        "Weight: \(Float(pokemonWeight/10))kg"
     }
 }
