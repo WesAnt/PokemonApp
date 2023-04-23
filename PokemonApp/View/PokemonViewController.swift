@@ -18,7 +18,7 @@ class PokemonViewController: UIViewController {
     var pokemonStats = [PokemonStats]() {
         didSet {
             pokemonStats.sort {
-                $0.forms.first?.name ?? "" < $1.forms.first?.name ?? ""
+                $0.name  < $1.name
             }
             collectionView.reloadData()
         }
@@ -103,14 +103,15 @@ extension PokemonViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.configure(name: pokemonStats[indexPath.row].forms.first?.name ?? "",
+        cell.configure(pokemonName: pokemonStats[indexPath.row].name,
                        image: pokemonStats[indexPath.row].sprites.front_default ?? "")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pokemonDetailsViewController = storyboard?.instantiateViewController(
-            identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
+        let pokemonDetailsViewController = storyboard?.instantiateViewController(identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
+        pokemonDetailsViewController.configure(pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? "", pokemonName: pokemonStats[indexPath.row].name, pokemonHeight: pokemonStats[indexPath.row].height, pokemonWeight: pokemonStats[indexPath.row].weight)
         self.navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
+        
     }
 }

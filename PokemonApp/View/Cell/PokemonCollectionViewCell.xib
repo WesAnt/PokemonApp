@@ -52,7 +52,7 @@
             <size key="customSize" width="309" height="365"/>
             <connections>
                 <outlet property="pokemonImage" destination="CVr-9b-wfP" id="hyh-HA-fdA"/>
-                <outlet property="pokemonName" destination="QuR-RO-YVY" id="2lG-aw-Jo1"/>
+                <outlet property="pokemonNameLabel" destination="QuR-RO-YVY" id="2lG-aw-Jo1"/>
             </connections>
             <point key="canvasLocation" x="-548.55072463768124" y="-92.075892857142847"/>
         </collectionViewCell>

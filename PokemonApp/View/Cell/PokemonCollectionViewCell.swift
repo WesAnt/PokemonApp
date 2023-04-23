@@ -10,7 +10,7 @@ import UIKit
 class PokemonCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var pokemonImage: UIImageView!
-    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +18,8 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(name: String, image: String) {
-        pokemonName.text = name
+    func configure(pokemonName: String, image: String) {
+        pokemonNameLabel.text = pokemonName.capitalizingFirstLetter()
         setImage(from: image)
     }
     

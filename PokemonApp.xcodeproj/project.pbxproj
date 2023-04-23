@@ -19,6 +19,7 @@
 		89A987E129F08ABD00B15567 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A987DF29F08ABD00B15567 /* Main.storyboard */; };
 		89A987E329F08ABD00B15567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A987E229F08ABD00B15567 /* Assets.xcassets */; };
 		89A987E629F08ABD00B15567 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A987E429F08ABD00B15567 /* LaunchScreen.storyboard */; };
+		89D81D6029F5835D00C185F9 /* Extensions + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D81D5F29F5835D00C185F9 /* Extensions + String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		89A987E229F08ABD00B15567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A987E529F08ABD00B15567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A987E729F08ABD00B15567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89D81D5F29F5835D00C185F9 /* Extensions + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,14 @@
 				893FFD3029F53AB000F8D01B /* Cell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8945B7BF29F57B9900E51248 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89D81D5F29F5835D00C185F9 /* Extensions + String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8972E93429F1D8790042E4EB /* Model */ = {
@@ -104,6 +114,7 @@
 		89A987D829F08ABD00B15567 /* PokemonApp */ = {
 			isa = PBXGroup;
 			children = (
+				8945B7BF29F57B9900E51248 /* Extensions */,
 				89A987D929F08ABD00B15567 /* AppDelegate.swift */,
 				89A987DB29F08ABD00B15567 /* SceneDelegate.swift */,
 				89A987DF29F08ABD00B15567 /* Main.storyboard */,
@@ -191,6 +202,7 @@
 				89A987DE29F08ABD00B15567 /* PokemonViewController.swift in Sources */,
 				891933E329F0952600782D90 /* PokemonList.swift in Sources */,
 				8972E93829F1E07E0042E4EB /* PokemonNetworkManager.swift in Sources */,
+				89D81D6029F5835D00C185F9 /* Extensions + String.swift in Sources */,
 				8944346829F44CAE000DE4D6 /* PokemonCollectionViewCell.swift in Sources */,
 				89A987DA29F08ABD00B15567 /* AppDelegate.swift in Sources */,
 				89A987DC29F08ABD00B15567 /* SceneDelegate.swift in Sources */,

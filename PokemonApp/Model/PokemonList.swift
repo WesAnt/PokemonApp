@@ -17,14 +17,12 @@ struct PokemonEntry: Codable {
 }
 
 struct PokemonStats: Codable {
-    let forms: [FormsInfo]
+    let name: String
     let sprites: PokemonSprites
     let weight: Int
+    let height: Int
 }
 
-struct FormsInfo: Codable {
-    let name: String
-}
 struct PokemonSprites: Codable {
     var front_default: String?
 }
