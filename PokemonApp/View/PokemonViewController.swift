@@ -73,10 +73,9 @@ extension PokemonViewController {
 
 extension PokemonViewController: UICollectionViewDelegate {
     private func configureCollectionView() {
-        let nib = UINib(nibName: "PokemonCollectionViewCell", bundle: nil)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(nib, forCellWithReuseIdentifier: "PokemonCollectionViewCell")
+        collectionView.register(PokemonCollectionViewCell.nib, forCellWithReuseIdentifier: "PokemonCollectionViewCell")
         collectionView.layer.borderWidth = 5.0
         collectionView.layer.borderColor = UIColor.blue.cgColor
         view.addSubview(collectionView)
@@ -102,9 +101,7 @@ extension PokemonViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell", for: indexPath) as? PokemonCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.configure(pokemonName: pokemonStats[indexPath.row].name,
-                       image: pokemonStats[indexPath.row].sprites.front_default ?? "")
+        cell.bind(viewModel: PokemonCollectionViewCellViewModel(pokemonName: pokemonStats[indexPath.row].name, pokemonImage: pokemonStats[indexPath.row].sprites.front_default ?? ""))
         return cell
     }
     

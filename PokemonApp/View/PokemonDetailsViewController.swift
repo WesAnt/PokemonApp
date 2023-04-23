@@ -26,6 +26,7 @@ class PokemonDetailsViewController: UIViewController {
     
     func setup() {
         title = "Pokemon Details"
+        view.backgroundColor = .init(red: 50/255, green: 159/255, blue: 190/255, alpha: 1)
         pokemonNameLabel.text = pokemonName?.capitalizingFirstLetter()
         pokemonHeightLabel.text = "Height: \(pokemonHeight ?? 0) ft"
         pokemonWeightLabel.text = "Weight: \(pokemonWeight ?? 0) Kg"
@@ -55,5 +56,4 @@ class PokemonDetailsViewController: UIViewController {
             }
         }
     }
-    
 }
