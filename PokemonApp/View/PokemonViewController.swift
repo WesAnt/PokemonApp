@@ -12,7 +12,7 @@ class PokemonViewController: UIViewController {
     //MARK: - Constants
     enum Constants {
         static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon?limit=151"
-        static let title = "POKEMON"
+        static let title = "POKEMON!"
     }
     
     //MARK: - Properties
@@ -96,7 +96,7 @@ extension PokemonViewController: UICollectionViewDelegate {
         collectionView.delegate = self
         collectionView.register(PokemonCollectionViewCell.nib, forCellWithReuseIdentifier: "PokemonCollectionViewCell")
         collectionView.layer.borderWidth = 5.0
-        collectionView.layer.borderColor = UIColor.blue.cgColor
+        collectionView.layer.borderColor = .init(red: 50/255, green: 159/255, blue: 190/255, alpha: 1)
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
     }
