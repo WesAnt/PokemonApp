@@ -14,9 +14,13 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        pokemonName.text = "bulbasaur"
-        setImage(from: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png")
         
+        
+    }
+    
+    func configure(name: String, image: String) {
+        pokemonName.text = name
+        setImage(from: image)
     }
     
     func setImage(from url: String) {

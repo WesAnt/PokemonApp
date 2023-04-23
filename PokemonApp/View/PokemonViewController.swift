@@ -14,9 +14,12 @@ class PokemonViewController: UIViewController {
     }
     
     let pokemonNetworkManager = PokemonNetworkManager()
-    var pokemonCharacters = [PokemonCharacter]()
-    var pokemonCharacterStats = [PokemonCharacterStats]() {
+    var pokemonEntries = [PokemonEntry]()
+    var pokemonStats = [PokemonStats]() {
         didSet {
+            pokemonStats.sort {
+                $0.forms.first?.name ?? "" < $1.forms.first?.name ?? ""
+            }
             collectionView.reloadData()
         }
     }
@@ -32,18 +35,18 @@ class PokemonViewController: UIViewController {
     
     private func fetchPokemonData() {
         pokemonNetworkManager.pokemonListRequest(with: Constants.pokemonListUrl) { pokemonList in
-            for pokemon in pokemonList {
-                self.pokemonCharacters.append(PokemonCharacter(name: pokemon.name, url: pokemon.url))
+            self.pokemonEntries = pokemonList
+            DispatchQueue.main.async {
                 self.fetchPokemonStats()
+                self.collectionView.reloadData()
             }
         }
     }
     
     private func fetchPokemonStats() {
-        print (self.pokemonCharacters)
-        for pokemonCharacter in pokemonCharacters {
+        for pokemonCharacter in pokemonEntries {
             self.pokemonNetworkManager.pokemonStatsRequest(with: pokemonCharacter.url) { pokemonStats in
-                self.pokemonCharacterStats.append(PokemonCharacterStats(name: pokemonStats.forms.first?.name ?? "", image: pokemonStats.sprites.front_default ?? ""))
+                self.pokemonStats.append(pokemonStats)
             }
         }
     }
@@ -91,11 +94,16 @@ extension PokemonViewController: UICollectionViewDelegate {
 
 extension PokemonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return pokemonStats.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell", for: indexPath) as? PokemonCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.configure(name: pokemonStats[indexPath.row].forms.first?.name ?? "",
+                       image: pokemonStats[indexPath.row].sprites.front_default ?? "")
         return cell
     }
 }

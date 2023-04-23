@@ -47,12 +47,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		893FFD3029F53AB000F8D01B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8944346629F44CAE000DE4D6 /* PokemonCollectionViewCell.swift */,
+				8944346729F44CAE000DE4D6 /* PokemonCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8944346B29F44CB8000DE4D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				89A987DD29F08ABD00B15567 /* PokemonViewController.swift */,
-				8944346629F44CAE000DE4D6 /* PokemonCollectionViewCell.swift */,
-				8944346729F44CAE000DE4D6 /* PokemonCollectionViewCell.xib */,
+				893FFD3029F53AB000F8D01B /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
