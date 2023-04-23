@@ -11,9 +11,9 @@ struct PokemonCollectionViewCellViewModel {
     private var pokemonNameText: String
     private var pokemonImageUrl: String
     
-    init(pokemonName: String, pokemonImage: String) {
+    init(pokemonName: String, pokemonImageUrl: String) {
         self.pokemonNameText = pokemonName
-        self.pokemonImageUrl = pokemonImage
+        self.pokemonImageUrl = pokemonImageUrl
     }
     
     func getPokemonName() -> String {

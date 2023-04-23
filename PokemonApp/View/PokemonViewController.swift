@@ -101,7 +101,7 @@ extension PokemonViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell", for: indexPath) as? PokemonCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.bind(viewModel: PokemonCollectionViewCellViewModel(pokemonName: pokemonStats[indexPath.row].name, pokemonImage: pokemonStats[indexPath.row].sprites.front_default ?? ""))
+        cell.bind(viewModel: PokemonCollectionViewCellViewModel(pokemonName: pokemonStats[indexPath.row].name, pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? ""))
         return cell
     }
     
@@ -109,6 +109,5 @@ extension PokemonViewController: UICollectionViewDataSource {
         let pokemonDetailsViewController = storyboard?.instantiateViewController(identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
         pokemonDetailsViewController.configure(pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? "", pokemonName: pokemonStats[indexPath.row].name, pokemonHeight: pokemonStats[indexPath.row].height, pokemonWeight: pokemonStats[indexPath.row].weight)
         self.navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
-        
     }
 }
