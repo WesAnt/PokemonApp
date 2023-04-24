@@ -30,7 +30,7 @@ class PokemonCollectionViewCellTests: XCTestCase {
 
     //MARK:- Tests
     func test_init_setsCorrectStrings() {
-            XCTAssertEqual(viewModel.getPokemonName(), "Bulbasaur")
-            XCTAssertEqual(viewModel.getPokemonImageUrl(), "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
+            XCTAssertEqual(viewModel.getPokemonName, "Bulbasaur")
+            XCTAssertEqual(viewModel.getPokemonImageUrl, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
     }
 }

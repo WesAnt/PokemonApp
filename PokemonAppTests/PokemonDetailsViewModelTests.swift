@@ -36,9 +36,9 @@ class PokemonDetailsViewModelTests: XCTestCase {
 
     //MARK:- Tests
     func test_init_setsCorrectStrings() {
-        XCTAssertEqual(viewModel.getPokemonName(), "Name: Bulbasaur")
-        XCTAssertEqual(viewModel.getPokemonImageUrl(), "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
-        XCTAssertEqual(viewModel.getPokemonHeight(), "Height: 70.0cm")
-        XCTAssertEqual(viewModel.getPokemonWeight(), "Weight: 6.0kg")
+        XCTAssertEqual(viewModel.getPokemonName, "Name: Bulbasaur")
+        XCTAssertEqual(viewModel.getPokemonImageUrl, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")
+        XCTAssertEqual(viewModel.getPokemonHeight, "Height: 70.0cm")
+        XCTAssertEqual(viewModel.getPokemonWeight, "Weight: 6.0kg")
     }
 }

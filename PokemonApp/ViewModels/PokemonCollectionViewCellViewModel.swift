@@ -19,11 +19,11 @@ struct PokemonCollectionViewCellViewModel {
     }
     
     //MARK: - Getter funcs
-    func getPokemonName() -> String {
+    var getPokemonName: String {
         pokemonNameText.capitalizingFirstLetter()
     }
     
-    func getPokemonImageUrl() -> String {
+    var getPokemonImageUrl: String {
         pokemonImageUrl
     }
 }

@@ -27,19 +27,19 @@ struct PokemonDetailsViewModel {
     }
     
     //Mark: - Getter funcs
-    func getPokemonName() -> String {
+    var getPokemonName: String {
         "Name: " + pokemonName.capitalizingFirstLetter()
     }
     
-    func getPokemonImageUrl() -> String {
+    var getPokemonImageUrl: String {
         pokemonImageUrl
     }
     
-    func getPokemonHeight() -> String {
+    var getPokemonHeight: String {
         "Height: \(Float(pokemonHeight*10))cm"
     }
     
-    func getPokemonWeight() -> String {
+    var getPokemonWeight: String {
         "Weight: \(Float(pokemonWeight/10))kg"
     }
 }

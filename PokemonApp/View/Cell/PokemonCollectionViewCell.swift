@@ -10,8 +10,8 @@ import UIKit
 class PokemonCollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var pokemonImage: UIImageView!
-    @IBOutlet weak var pokemonNameLabel: UILabel!
+    @IBOutlet private var pokemonImage: UIImageView!
+    @IBOutlet private var pokemonNameLabel: UILabel!
     
     //MARK: - Nib setup
     static var identifier: String { return String(describing: self) }
@@ -32,8 +32,8 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Private funcs
     private func setup( ){
-        pokemonNameLabel.text = viewModel?.getPokemonName()
-        setImage(from: viewModel?.getPokemonImageUrl() ?? "")
+        pokemonNameLabel.text = viewModel?.getPokemonName
+        setImage(from: viewModel?.getPokemonImageUrl ?? "")
     }
         
     private func setImage(from url: String) {

@@ -10,7 +10,7 @@ import UIKit
 class PokemonDetailsViewController: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet private var pokemonImage: UIImageView!
     @IBOutlet private var pokemonNameLabel: UILabel!
     @IBOutlet private var pokemonHeightLabel: UILabel!
     @IBOutlet private var pokemonWeightLabel: UILabel!
@@ -31,12 +31,12 @@ class PokemonDetailsViewController: UIViewController {
     
     //MARK: - Private funcs
     private func setup() {
-        title = "Pokemon Details"
-        view.backgroundColor = .init(red: 0/255, green: 159/255, blue: 0/255, alpha: 1)
-        pokemonNameLabel.text = viewModel?.getPokemonName()
-        pokemonHeightLabel.text = viewModel?.getPokemonHeight()
-        pokemonWeightLabel.text = viewModel?.getPokemonWeight()
-        setImage(from: viewModel?.getPokemonImageUrl() ?? "")
+        title = "POKEMON DETAILS"
+        view.backgroundColor = .init(red: 50/255, green: 159/255, blue: 190/255, alpha: 1)
+        pokemonNameLabel.text = viewModel?.getPokemonName
+        pokemonHeightLabel.text = viewModel?.getPokemonHeight
+        pokemonWeightLabel.text = viewModel?.getPokemonWeight
+        setImage(from: viewModel?.getPokemonImageUrl ?? "")
     }
     
     private func setImage(from url: String) {
