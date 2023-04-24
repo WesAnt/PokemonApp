@@ -9,3 +9,4 @@ https://medium.com/swlh/loading-images-from-url-in-swift-2bf8b9db266
 https://www.youtube.com/watch?v=vAhas_my5mo
 https://www.hackingwithswift.com/example-code/strings/how-to-capitalize-the-first-letter-of-a-string
 https://medium.com/@sergio13prez/fetching-them-all-poke-api-62ca580981a2
+https://johnkouris.hashnode.dev/making-an-api-request-in-swift
