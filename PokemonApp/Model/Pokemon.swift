@@ -18,7 +18,6 @@ struct PokemonEntry: Codable {
 
 struct PokemonStats: Codable {
     let name: String
-    let sprites: PokemonSprites
     let weight: Int
     let height: Int
 }

@@ -12,23 +12,15 @@ class PokemonViewController: UIViewController {
     //MARK: - Constants
     enum Constants {
         static let pokemonListUrl = "https://pokeapi.co/api/v2/pokemon?limit=151"
+        static let pokemonImageBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"
         static let title = "POKEMON!"
     }
     
     //MARK: - Properties
     private let pokemonNetworkManager = PokemonNetworkManager()
     private var pokemonEntries = [PokemonEntry]()
-    private var pokemonStats = [PokemonStats]() {
-        didSet {
-            pokemonStats.sort {
-                $0.name  < $1.name
-            }
-            if pokemonStats.count == pokemonEntries.count {
-                activityView.stopAnimating()
-                collectionView.reloadData()
-            }
-        }
-    }
+    private var pokemonImageUrl: [String] = []
+    private var pokemonStats = [PokemonStats]()
 
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PokemonViewController.createLayout())
     let activityView = UIActivityIndicatorView(style: .large)
@@ -36,7 +28,6 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         title = Constants.title
         fetchPokemonData()
         configureCollectionView()
@@ -48,18 +39,15 @@ class PokemonViewController: UIViewController {
     private func fetchPokemonData() {
         pokemonNetworkManager.pokemonListRequest(with: Constants.pokemonListUrl) { pokemonList in
             self.pokemonEntries = pokemonList
-            DispatchQueue.main.async {
-                self.fetchPokemonStats()
-                self.collectionView.reloadData()
-            }
+            self.activityView.stopAnimating()
+            self.setupPokemonImageUrlArray()
+            self.collectionView.reloadData()
         }
     }
     
-    private func fetchPokemonStats() {
-        for pokemonCharacter in pokemonEntries {
-            self.pokemonNetworkManager.pokemonStatsRequest(with: pokemonCharacter.url) { pokemonStats in
-                self.pokemonStats.append(pokemonStats)
-            }
+    private func setupPokemonImageUrlArray() {
+        for index in 1...pokemonEntries.count {
+            pokemonImageUrl.append(Constants.pokemonImageBaseUrl + "\(index)" + ".png")
         }
     }
     
@@ -113,22 +101,28 @@ extension PokemonViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDataSource
 extension PokemonViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonStats.count
+        return pokemonEntries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell", for: indexPath) as? PokemonCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCollectionViewCell",
+                                                            for: indexPath) as? PokemonCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.bind(viewModel: PokemonCollectionViewCellViewModel(pokemonName: pokemonStats[indexPath.row].name, pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? ""))
+        cell.bind(viewModel: PokemonCollectionViewCellViewModel(pokemonName: pokemonEntries[indexPath.row].name,
+                                                                pokemonImageUrl: pokemonImageUrl[indexPath.row]))
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let pokemonDetailsViewController = storyboard?.instantiateViewController(identifier: "PokemonDetailsViewController") as! PokemonDetailsViewController
         
-        pokemonDetailsViewController.bind(viewModel: PokemonDetailsViewModel(pokemonImageUrl: pokemonStats[indexPath.row].sprites.front_default ?? "", pokemonName: pokemonStats[indexPath.row].name, pokemonHeight: pokemonStats[indexPath.row].height, pokemonWeight: pokemonStats[indexPath.row].weight))
-        
+        self.pokemonNetworkManager.pokemonStatsRequest(with: pokemonEntries[indexPath.row].url) { pokemonStats in
+            pokemonDetailsViewController.bind(viewModel: PokemonDetailsViewModel(pokemonImageUrl: self.pokemonImageUrl[indexPath.row],
+                                                                                 pokemonName: pokemonStats.name,
+                                                                                 pokemonHeight: pokemonStats.height,
+                                                                                 pokemonWeight: pokemonStats.weight))
+        }
         self.navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
